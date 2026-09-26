@@ -47,6 +47,8 @@ set(SDL_TESTS OFF CACHE BOOL "" FORCE)
 
 FetchContent_MakeAvailable(fmt SDL3 nfd)
 
+add_subdirectory(src/common)
+
 # Populate project version info in code
 configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/src/version.h.in
@@ -61,6 +63,7 @@ target_link_libraries(pmbuddy
     PRIVATE
         project_sanitizers
         project_warnings
+        common
         fmt::fmt
         nfd
         SDL3::SDL3
